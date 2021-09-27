@@ -63,7 +63,9 @@ class OnboardingScreen extends StatelessWidget {
                                     borderRadius: BorderRadius.circular(65),
                                     side: BorderSide(color: Colors.white),
                                 )),
-                            onPressed: () {},
+                            onPressed: () {
+                              Navigator.pushNamed(context, '/signin');
+                            },
                             child: Text(
                               'Sign In',
                               style: whiteTextStyle.copyWith(

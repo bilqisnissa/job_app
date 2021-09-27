@@ -1,19 +1,18 @@
 import 'package:email_validator/email_validator.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:job_app/theme.dart';
 
-class SignupScreen extends StatefulWidget {
-  const SignupScreen({Key? key}) : super(key: key);
+class SigninScreen extends StatefulWidget {
+  const SigninScreen({Key? key}) : super(key: key);
 
   @override
-  _SignupScreenState createState() => _SignupScreenState();
+  _SigninScreenState createState() => _SigninScreenState();
 }
 
-class _SignupScreenState extends State<SignupScreen> {
-  TextEditingController nameController = TextEditingController(text: '');
+class _SigninScreenState extends State<SigninScreen> {
   TextEditingController emailController = TextEditingController(text: '');
   TextEditingController passwordController = TextEditingController(text: '');
-  TextEditingController goalController = TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
@@ -21,62 +20,24 @@ class _SignupScreenState extends State<SignupScreen> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.only(left: 20.0, right: 20.0, top: 30.0),
+            margin: EdgeInsets.symmetric(horizontal: 20.0, vertical: 30.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Sign Up', style: greyTextStyle.copyWith(fontSize: 16.0)),
+                Text('Sign In', style: greyTextStyle.copyWith(fontSize: 16.0)),
                 SizedBox(
                   height: 4.0,
                 ),
                 Text(
-                  'Begin New Journey',
+                  'Build Your Career',
                   style: blackTextStyle.copyWith(
                       fontSize: 24.0, fontWeight: FontWeight.w600),
                 ),
-                Center(
-                  child: Container(
-                    width: 120.0,
-                    height: 120.0,
-                    padding: EdgeInsets.all(8.0),
-                    margin: EdgeInsets.only(top: 50.0, bottom: 50.0),
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(color: primaryColor)),
-                    child: Image.asset('assets/images/image_profile.png'),
-                  ),
+                SizedBox(height: 40.0,
                 ),
-                Text(
-                  'Full Name',
-                  style: greyTextStyle.copyWith(fontSize: 16.0),
+                Center(child: Image.asset('assets/images/image_sign_in.png', width: 250.0,)
                 ),
-                SizedBox(
-                  height: 8.0,
-                ),
-                TextFormField(
-                  cursorColor: primaryColor,
-                  controller: nameController,
-                  decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(
-                          horizontal: 26.0, vertical: 20.0),
-                      fillColor: formColor,
-                      filled: true,
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          borderSide: BorderSide.none),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        borderSide: BorderSide(color: primaryColor),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      hintText: ''),
-                  style: purpleTextStyle,
-                ),
-                SizedBox(
-                  height: 20.0,
-                ),
+                SizedBox(height: 40.0,),
                 Text(
                   'Email',
                   style: greyTextStyle.copyWith(fontSize: 16.0),
@@ -147,47 +108,13 @@ class _SignupScreenState extends State<SignupScreen> {
                   style: purpleTextStyle,
                 ),
                 SizedBox(
-                  height: 20.0,
-                ),
-                Text(
-                  'Goal',
-                  style: greyTextStyle.copyWith(fontSize: 16.0),
-                ),
-                SizedBox(
-                  height: 8.0,
-                ),
-                TextFormField(
-                  obscureText: true,
-                  cursorColor: primaryColor,
-                  controller: goalController,
-                  decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(
-                          horizontal: 26.0, vertical: 20.0),
-                      fillColor: formColor,
-                      filled: true,
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          borderSide: BorderSide.none),
-                      focusedBorder: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                        borderSide: BorderSide(color: primaryColor),
-                      ),
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(20.0),
-                      ),
-                      hintText: ''),
-                  style: purpleTextStyle,
-                ),
-                SizedBox(
                   height: 40.0,
                 ),
                 Container(
                   width: double.infinity,
                   height: 45.0,
                   child: TextButton(
-                    onPressed: () {
-                      Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
-                    },
+                    onPressed: () {Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);},
                     style: TextButton.styleFrom(
                       backgroundColor: primaryColor,
                       shape: RoundedRectangleBorder(
@@ -195,9 +122,9 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                     ),
                     child: Text(
-                      'Sign Up',
+                      'Sign In',
                       style:
-                          whiteTextStyle.copyWith(fontWeight: FontWeight.w600),
+                      whiteTextStyle.copyWith(fontWeight: FontWeight.w600),
                     ),
                   ),
                 ),
@@ -206,14 +133,14 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 Center(
                   child: TextButton(
-                      onPressed: () {
-                        Navigator.pushNamedAndRemoveUntil(context, '/signin', (route) => false);
-                      },
-                      child: Text(
-                        'Back To Sign In',
-                        style:
-                            greyTextStyle.copyWith(fontWeight: FontWeight.w400),
-                      ),
+                    onPressed: () {
+                      Navigator.pushNamedAndRemoveUntil(context, '/signup', (route) => false);
+                    },
+                    child: Text(
+                      'Create New Account',
+                      style:
+                      greyTextStyle.copyWith(fontWeight: FontWeight.w400),
+                    ),
                   ),
                 ),
               ],
